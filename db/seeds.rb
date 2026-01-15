@@ -30,9 +30,11 @@ end
 1000.times do
   title = Faker::Book.title
   short_description = Faker::Lorem.paragraph
+  user = User.all.sample(1)
 
   Book.create(
     title: title,
-    short_description: short_description
+    short_description: short_description,
+    user_id: user.first.id,
   )
 end
