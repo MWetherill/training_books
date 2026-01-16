@@ -1,6 +1,16 @@
 <tr id="<%= dom_id user %>">
-  <td><%= user.last_name %>, <%= user.first_name %></td>
+  <td><%= link_to name(user), user %></td>
   <td><%= user.dob.strftime("%d %b %Y") %></td>
   <td><%= user.email_address %></td>
   <td><%= user.books.count %></td>
+  <td>
+    <div class="d-flex flex-row justify-content-end align-items-center gap-1">
+      <%= link_to edit_user_path(user), class: "btn btn-dark" do %>
+        <i class="fa-solid fa-pen-to-square"></i>
+      <% end %>
+      <%= button_to user, method: :delete, data: { turbo_confirm: "Are you sure?" }, class: "btn btn-danger" do %>
+        <i class="fa-solid fa-trash"></i>
+      <% end %>
+    </div>
+  </td>
 </tr>

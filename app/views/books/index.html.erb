@@ -1,12 +1,20 @@
-<h1>Books</h1>
-<table class="table table-striped text-start">
-  <thead>
+<h1 class="mb-4">Library</h1>
+<%= link_to "Add a book", new_book_path, class: "btn btn-dark" %>
+<hr>
+<% if @books.present? %>
+  <table class="table table-striped text-start">
+    <thead>
       <th scope="col">Name</th>
       <th scope="col">Short Description</th>
+      <th scope="col">Genre</th>
       <th scope="col">Owner</th>
-    </tr>
-  </thead>
-  <tbody>
-    <%= render @books %>
-  </tbody>
-</table>
+      <th scope="col"></th>
+    </thead>
+    <tbody>
+      <%= render @books %>
+    </tbody>
+  </table>
+  <div class="d-flex justify-content-end">
+    <%== @pagy.series_nav(:bootstrap) %>
+  </div>
+<% end %>

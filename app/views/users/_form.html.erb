@@ -1,0 +1,23 @@
+<%= form_with model: @user do |form| %>
+  <div class="mb-2">
+    <%= form.label :first_name, class: "form-label fw-bold" %>
+    <%= form.text_field :first_name, class: "form-control" %>
+  </div>
+  <div class="mb-2">
+    <%= form.label :last_name, class: "form-label fw-bold" %>
+    <%= form.text_field :last_name, class: "form-control" %>
+  </div>
+  <div class="mb-2">
+    <%= form.label :dob, class: "form-label fw-bold" %>
+    <%= form.date_field :dob, class: "form-control" %>
+  </div>
+  <div class="mb-4">
+    <%= form.label :email_address, class: "form-label fw-bold" %>
+    <%= form.email_field :email_address, class: "form-control" %>
+  </div>
+  <div class="d-flex flex-row justify-content-end align-items-center gap-2">
+    <%= link_to "Cancel", users_path, class: "btn btn-danger" %>
+    |
+    <%= form.submit "Submit", class: "btn btn-success" %>
+  </div>
+<% end %>

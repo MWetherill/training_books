@@ -1,0 +1,6 @@
+<tr id="<%= dom_id book %>">
+  <td><%= link_to book.title, book %></td>
+  <td><%= book.short_description %></td>
+  <td><%= book.genres.map{|bg| link_to bg.name, bg}.join(', ').html_safe %></td>
+  <td><%= link_to name(book.user), book.user %></td>
+</tr>
