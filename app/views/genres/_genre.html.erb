@@ -3,7 +3,7 @@
   <td><%= genre.books.count %></td>
   <td>
     <div class="d-flex flex-row justify-content-end align-items-center gap-1">
-      <%= link_to edit_genre_path(genre), class: "btn btn-dark" do %>
+      <%= link_to edit_genre_path(genre), class: "btn btn-primary" do %>
         <i class="fa-solid fa-pen-to-square"></i>
       <% end %>
       <%= button_to genre, method: :delete, data: { turbo_confirm: "Are you sure?" }, class: "btn btn-danger" do %>

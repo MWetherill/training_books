@@ -11,6 +11,8 @@ class BooksController < ApplicationController
 
   def new
     @book = Book.new
+    @users = User.all.order(last_name: :asc)
+    @genres = Genre.all.order(name: :asc)
   end
 
   def create
@@ -28,6 +30,8 @@ class BooksController < ApplicationController
   end
 
   def edit
+    @users = User.all.order(last_name: :asc)
+    @genres = Genre.all.order(name: :asc)
   end
 
   def update
@@ -50,6 +54,6 @@ class BooksController < ApplicationController
   end
 
   def book_params
-    params.require(:book).permit(:title, :short_description)
+    params.require(:book).permit(:title, :short_description, :user_id, genre_ids: [])
   end
 end

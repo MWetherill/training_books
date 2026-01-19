@@ -2,8 +2,8 @@
 <h2><%= name(@user) %></h2>
 <p class="mb-4">No. of books: <%= @user.books.count %></p>
 <div class="d-flex flex-row justify-content-start align-items-center gap-1">
-  <%= link_to 'Back to users', users_path, class: "btn btn-dark" %>
-  <%= link_to edit_user_path(@user), class: "btn btn-dark" do %>
+  <%= link_to 'Back to users', users_path, class: "btn btn-primary" %>
+  <%= link_to edit_user_path(@user), class: "btn btn-primary" do %>
     <i class="fa-solid fa-pen-to-square"></i>
   <% end %>
   <%= button_to @user, method: :delete, data: { turbo_confirm: "Are you sure?" }, class: "btn btn-danger" do %>

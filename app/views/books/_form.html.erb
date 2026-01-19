@@ -3,9 +3,21 @@
     <%= form.label :title, class: "form-label fw-bold" %>
     <%= form.text_field :title, class: "form-control" %>
   </div>
-  <div class="mb-4">
+  <div class="mb-2">
     <%= form.label :short_description, class: "form-label fw-bold" %>
     <%= form.text_area :short_description, class: "form-control" %>
+  </div>
+  <div class="mb-4">
+    <%= form.label :user_id, class: "form-label fw-bold" %>
+    <%= form.select :user_id, users_for_select(@users), {include_blank: "Select user..."}, {class: "form-select"} %>
+  </div>
+  <div class="mb-4">
+    <%= form.label :genre_id, class: "form-label fw-bold" %>
+    <div class="d-flex flex-row justify-content-start align-items-center flex-wrap gap-1">
+      <%= form.collection_check_boxes(:genre_ids, @genres, :id, :name) do |g| %>
+        <%= g.check_box(class: "btn-check") %><%= g.label(class: "btn btn-outline-dark") %>
+      <% end %>
+    </div>
   </div>
   <div class="d-flex flex-row justify-content-end align-items-center gap-2">
     <%= link_to "Cancel", books_path, class: "btn btn-danger" %>

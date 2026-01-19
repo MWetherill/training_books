@@ -1,10 +1,11 @@
 <h6 class="fw-lighter">BOOK</h6>
 <h2><%= @book.title %></h2>
-<p class="mb-4"><%= @book.genres.map{|bg| link_to bg.name, bg}.join(', ').html_safe %></p>
+<p class="mb-2"><%= @book.genres.map{|bg| link_to bg.name, bg}.join(', ').html_safe %></p>
+<p class="mb-4"><%= @book.short_description %></p>
 <p class="fst-italic mb-4"><small>Owned by <%= link_to name(@book.user), @book.user %></small></p>
 <div class="d-flex flex-row justify-content-start align-items-center gap-1">
-  <%= link_to 'Back to books', books_path, class: "btn btn-dark" %>
-  <%= link_to edit_book_path(@book), class: "btn btn-dark" do %>
+  <%= link_to 'Back to books', books_path, class: "btn btn-primary" %>
+  <%= link_to edit_book_path(@book), class: "btn btn-primary" do %>
     <i class="fa-solid fa-pen-to-square"></i>
   <% end %>
   <%= button_to @book, method: :delete, data: { turbo_confirm: "Are you sure?" }, class: "btn btn-danger" do %>
