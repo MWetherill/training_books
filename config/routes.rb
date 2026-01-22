@@ -14,5 +14,6 @@ Rails.application.routes.draw do
   resources "books"
   resources "users"
   resources "genres"
+  resources "activities", only: :index
   get "/:page" => "pages#show"
 end

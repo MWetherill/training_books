@@ -26,7 +26,7 @@
           <td><%= link_to book.title, book %></td>
           <td><%= book.short_description %></td>
           <td><%= book.genres.map{|bg| link_to bg.name, bg}.join(', ').html_safe %></td>
-          <td><%= link_to name(book.user), book.user %></td>
+          <td><%= link_to book.user.inverted_full_name, book.user %></td>
         </tr>
       <% end %>
     </tbody>
@@ -35,3 +35,14 @@
     <%== @pagy.series_nav(:bootstrap) %>
   </div>
 <% end %>
+<hr>
+<h3>History</h3>
+<table class="table table-striped text-start">
+  <thead>
+    <th scope="col">Activity</th>
+    <th scope="col">Timestamp</th>
+  </thead>
+  <tbody>
+    <%= render_activities(@activities, {layout: :activity}) %>
+  </tbody>
+</table>

@@ -7,6 +7,9 @@ class UsersController < ApplicationController
   def show
     @user = User.find(params[:id])
     @pagy, @books = pagy(:offset, @user.books.order(title: :asc))
+
+    activities = @user.activities
+    @activities = activities.order(created_at: :desc)
   end
 
   def new

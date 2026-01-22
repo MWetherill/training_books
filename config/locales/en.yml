@@ -29,3 +29,16 @@
 
 en:
   hello: "Hello world"
+  activity:
+    genre:
+      create: "The genre '%{name}' was created."
+      update: "The genre '%{name}' was updated."
+      destroy: "The genre '%{name}' was destroyed."
+    user:
+      create: "The user '%{name}' was created."
+      update: "The user '%{name}' was updated."
+      destroy: "The user '%{name}' was destroyed."
+    book:
+      create: "The book '%{name}' was created."
+      update: "The book '%{name}' was updated."
+      destroy: "The book '%{name}' was destroyed."

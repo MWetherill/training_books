@@ -2,6 +2,7 @@ require_relative "boot"
 
 require "rails/all"
 
+require "active_storage"
 # Require the gems listed in Gemfile, including any gems
 # you've limited to :test, :development, or :production.
 Bundler.require(*Rails.groups)
@@ -23,5 +24,7 @@ module TrainingBooks
     #
     # config.time_zone = "Central Time (US & Canada)"
     # config.eager_load_paths << Rails.root.join("extras")
+    config.active_record.use_yaml_unsafe_load = true
+    config.active_record.yaml_column_permitted_classes = [ Symbol, Date, Time, ActiveSupport::TimeWithZone, ActiveSupport::TimeZone ]
   end
 end

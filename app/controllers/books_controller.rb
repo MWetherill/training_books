@@ -7,6 +7,9 @@ class BooksController < ApplicationController
 
   def show
     @book = Book.find(params[:id])
+
+    activities = @book.activities
+    @activities = activities.order(created_at: :desc)
   end
 
   def new
@@ -54,6 +57,6 @@ class BooksController < ApplicationController
   end
 
   def book_params
-    params.require(:book).permit(:title, :short_description, :user_id, genre_ids: [])
+    params.require(:book).permit(:title, :short_description, :user_id, :cover, :body, genre_ids: [])
   end
 end

@@ -7,6 +7,9 @@ class GenresController < ApplicationController
 
   def show
     @pagy, @books = pagy(:offset, @genre.books.order(title: :asc))
+
+    activities = @genre.activities
+    @activities = activities.order(created_at: :desc)
   end
 
   def new

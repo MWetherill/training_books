@@ -1,0 +1,14 @@
+<h1 class="mb-4">Activity</h1>
+<hr>
+<table class="table table-striped text-start">
+  <thead>
+    <th scope="col">Activity</th>
+    <th scope="col">Timestamp</th>
+  </thead>
+  <tbody>
+    <%= render_activities(@activities, {layout: :activity}) %>
+  </tbody>
+</table>
+<div class="d-flex justify-content-end">
+  <%== @pagy.series_nav(:bootstrap) %>
+</div>
