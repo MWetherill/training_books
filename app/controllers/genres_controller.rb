@@ -2,7 +2,8 @@ class GenresController < ApplicationController
   before_action :set_genre, only: %i[ show edit update destroy ]
 
   def index
-    @pagy, @genres = pagy(:offset, Genre.all.order(name: :asc))
+    @pagy, @genres = pagy(:offset, Genre.kept.all.order(name: :asc))
+    @genres_total = Genre.kept.all.count
   end
 
   def show
@@ -42,8 +43,8 @@ class GenresController < ApplicationController
   end
 
   def destroy
-    @genre.destroy
-    redirect_to genres_path
+    @genre.discard
+    redirect_to genres_path, notice: "Genre destroyed"
   end
 
   private

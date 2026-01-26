@@ -1,6 +1,10 @@
 <h6 class="fw-lighter">BOOK</h6>
 <h2><%= @book.title %></h2>
-<p class="mb-2"><%= @book.genres.map{|bg| link_to bg.name, bg}.join(', ').html_safe %></p>
+<p class="mb-2">
+  <% @book.genres.each do |bg| %>
+    <%= link_to bg.name, bg %><span class="book__book_genre--seperator me-1">,</span>
+  <% end %>
+</p>
 <p class="mb-4"><%= @book.short_description %></p>
 <p class="fst-italic mb-4"><small>Owned by <%= link_to @book.user.full_name, @book.user %></small></p>
 <div class="d-flex flex-row justify-content-start align-items-center gap-1">

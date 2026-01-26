@@ -1,7 +1,7 @@
 <tr>
   <% unless activity.key.include? "update" %>
-    <td><%= simple_format t("activity.#{activity.key}", 
-      name: link_to(activity.trackable.pub_act_key, activity.trackable, class: "fw-bold")) %></td>
+    <td><%= simple_format t("activity.#{activity.key}", name: activity.trackable.pub_act_key, 
+      linked_name: link_to(activity.trackable.pub_act_key, activity.trackable, class: "fw-bold")) %></td>
   <% else %>
     <td>
       The <%= activity.trackable.class.to_s.downcase %> '<%= link_to(activity.trackable.pub_act_key, activity.trackable, class: "fw-bold") %>' was updated.</br>

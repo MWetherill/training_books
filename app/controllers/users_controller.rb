@@ -1,7 +1,8 @@
 class UsersController < ApplicationController
   before_action :set_user, only: %i[ show edit update destroy ]
   def index
-    @pagy, @users = pagy(:offset, User.all.order(last_name: :asc))
+    @pagy, @users = pagy(:offset, User.kept.all.order(last_name: :asc))
+    @users_total = User.kept.all.count
   end
 
   def show
@@ -42,8 +43,8 @@ class UsersController < ApplicationController
   end
 
   def destroy
-    @user.destroy
-    redirect_to users_path
+    @user.discard
+    redirect_to users_path, notice: "User destroyed"
   end
 
   private

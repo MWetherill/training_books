@@ -2,7 +2,8 @@ class BooksController < ApplicationController
   before_action :set_book, only: %i[ show edit update destroy ]
   def index
     # @pagy, @books = pagy(:offset, Book.all.order(title: :asc), limit: 10)
-    @pagy, @books = pagy(:offset, Book.all.order(title: :asc))
+    @pagy, @books = pagy(:offset, Book.kept.all.order(title: :asc))
+    @books_total = Book.kept.all.count
   end
 
   def show
@@ -46,8 +47,8 @@ class BooksController < ApplicationController
   end
 
   def destroy
-    @book.destroy
-    redirect_to books_path
+    @book.discard
+    redirect_to books_path, notice: "Book destroyed"
   end
 
   private
