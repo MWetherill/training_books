@@ -6,18 +6,28 @@
 def running_time
   "#{(Time.now - @seed_start).seconds.round(2)}s"
 end
+
+User.create(
+  first_name: "Matthew",
+  last_name: "Wetherill",
+  dob: Faker::Date.birthday(min_age: 18, max_age: 100),
+  email_address: "matthew@kpstudio.co.uk",
+  password_digest: BCrypt::Password.create("password")
+)
 # Users
 100.times do |i|
   first_name = Faker::Name.first_name
   last_name = Faker::Name.last_name
   dob = Faker::Date.birthday(min_age: 18, max_age: 100)
   email = "#{first_name.downcase.gsub(/[^0-9a-z ]/i, '')}_#{last_name.downcase.gsub(/[^0-9a-z ]/i, '')}_#{i}@gmail.com"
+  password_digest = BCrypt::Password.create("password")
 
   User.create(
     first_name: first_name,
     last_name: last_name,
     dob: dob,
-    email_address: email
+    email_address: email,
+    password_digest: password_digest
   )
 end
 
