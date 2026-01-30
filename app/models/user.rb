@@ -15,4 +15,8 @@ class User < ApplicationRecord
   def inverted_full_name
     last_name + ", " + first_name
   end
+
+  def admin?
+    role == "admin"
+  end
 end

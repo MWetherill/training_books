@@ -12,5 +12,8 @@ class Ability
 
     can :read, User
     can :update, User, id: user.id
+
+    return unless user.admin?
+    can :manage, :all
   end
 end

@@ -12,7 +12,15 @@ User.create(
   last_name: "Wetherill",
   dob: Faker::Date.birthday(min_age: 18, max_age: 100),
   email_address: "matthew@kpstudio.co.uk",
-  password_digest: BCrypt::Password.create("password")
+  password_digest: BCrypt::Password.create("password"),
+  role: "admin"
+)
+User.create(
+  first_name: "Felix",
+  last_name: "Wetherill",
+  dob: Faker::Date.birthday(min_age: 18, max_age: 100),
+  email_address: "felix@kpstudio.co.uk",
+  password_digest: BCrypt::Password.create("password"),
 )
 # Users
 100.times do |i|
