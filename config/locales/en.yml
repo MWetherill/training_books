@@ -31,15 +31,14 @@ en:
   hello: "Hello world"
   activity:
     genre:
-      create: |
-        "%{owner} <i>created the</i> genre '%{linked_name}'."
+      create: "%{owner} created the genre '%{linked_name}'."
       update: "%{owner} updated the genre '%{linked_name}'."
-      destroy: "%{owner} destroyed the genre '%{name}' ."
+      destroy: "%{owner} destroyed the genre '%{name}'."
     user:
-      create: "The user '%{linked_name}' was created."
-      update: "The user '%{linked_name}' was updated."
-      destroy: "The user '%{name}' was destroyed."
+      create: "%{owner} created the user '%{linked_name}'."
+      update: "%{owner} updated the user '%{linked_name}'."
+      destroy: "%{owner} destroyed the user '%{name}'."
     book:
       create: "%{owner} created the book '%{linked_name}'."
       update: "%{owner} updated the book '%{linked_name}'."
-      destroy: "%{owner} destroyed the book '%{name}' ."
+      destroy: "%{owner} destroyed the book '%{name}'."
