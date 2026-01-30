@@ -4,6 +4,10 @@ module Authentication
   included do
     before_action :require_authentication
     helper_method :authenticated?
+
+    def current_user
+      @current_user ||= Current.user
+    end
   end
 
   class_methods do

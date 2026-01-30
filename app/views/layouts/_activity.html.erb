@@ -1,10 +1,15 @@
 <tr>
   <% unless activity.key.include? "update" %>
-    <td><%= simple_format t("activity.#{activity.key}", name: activity.trackable.pub_act_key, 
-      linked_name: link_to(activity.trackable.pub_act_key, activity.trackable, class: "fw-bold")) %></td>
+    <td><%= simple_format t(
+        "activity.#{activity.key}", 
+        name: activity.trackable.pub_act_key, 
+        linked_name: link_to(activity.trackable.pub_act_key, activity.trackable, class: "fw-bold"),
+        owner: "<i>" + (activity&.owner&.full_name || "System") + "</i>"
+      ) %>
+    </td>
   <% else %>
     <td>
-      The <%= activity.trackable.class.to_s.downcase %> '<%= link_to(activity.trackable.pub_act_key, activity.trackable, class: "fw-bold") %>' was updated.</br>
+      <%= activity&.owner&.full_name || "System" %> updated the <%= activity.trackable.class.to_s.downcase %> '<%= link_to(activity.trackable.pub_act_key, activity.trackable, class: "fw-bold") %>'.</br>
       <ul>
       <% activity.parameters[:changes].each do |k, v| %>
         <% unless k == "updated_at" %>
