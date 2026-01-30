@@ -3,4 +3,6 @@ class Genre < ApplicationRecord
   has_many :books, through: :book_genres
 
   alias_attribute :pub_act_key, :name
+
+  validates :name, presence: true
 end
