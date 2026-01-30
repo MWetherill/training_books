@@ -23,6 +23,9 @@
   </head>
 
   <body>
+    <% if authenticated? %>
+      <%= render 'layouts/components/user_bar' %>
+    <% end %>
     <%= render 'layouts/components/nav' %>
     <div class="container my-5">
       <%= yield %>

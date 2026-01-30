@@ -1,0 +1,10 @@
+<div class="d-flex flex-row justify-content-between align-items-center p-2 bg-dark text-white w-100">
+  <p class="mb-0">
+    <%= link_to Current.user, class: "text-white text-decoration-none" do %>
+      <i class="fa-solid fa-circle-user me-2"></i><%= Current.user.full_name %>
+    <% end %>
+  </p>
+  <%= button_to session_path, method: :delete, class: "nav-link" do %>
+    <i class="fa-solid fa-arrow-right-to-bracket me-2"></i>
+  <% end %>
+</div>

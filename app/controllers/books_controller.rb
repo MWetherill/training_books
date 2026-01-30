@@ -1,4 +1,5 @@
 class BooksController < ApplicationController
+  load_and_authorize_resource
   before_action :set_book, only: %i[ show edit update destroy ]
   def index
     # @pagy, @books = pagy(:offset, Book.all.order(title: :asc), limit: 10)
@@ -59,5 +60,9 @@ class BooksController < ApplicationController
 
   def book_params
     params.require(:book).permit(:title, :short_description, :user_id, :cover, :body, genre_ids: [])
+  end
+
+  def current_ability
+    @current_ability ||= Ability.new(Current.user)
   end
 end

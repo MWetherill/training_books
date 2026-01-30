@@ -5,11 +5,15 @@
   <td><%= user.books.count %></td>
   <td>
     <div class="d-flex flex-row justify-content-end align-items-center gap-1">
-      <%= link_to edit_user_path(user), class: "btn btn-primary" do %>
-        <i class="fa-solid fa-pen-to-square"></i>
+      <% if can? :update, user %>
+        <%= link_to edit_user_path(user), class: "btn btn-primary" do %>
+          <i class="fa-solid fa-pen-to-square"></i>
+        <% end %>
       <% end %>
-      <%= button_to user, method: :delete, data: { turbo_confirm: "Are you sure?" }, class: "btn btn-danger" do %>
-        <i class="fa-solid fa-trash"></i>
+      <% if can? :destroy, user %>
+        <%= button_to user, method: :delete, data: { turbo_confirm: "Are you sure?" }, class: "btn btn-danger" do %>
+          <i class="fa-solid fa-trash"></i>
+        <% end %>
       <% end %>
     </div>
   </td>

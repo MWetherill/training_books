@@ -1,4 +1,5 @@
 class UsersController < ApplicationController
+  load_and_authorize_resource
   before_action :set_user, only: %i[ show edit update destroy ]
   def index
     @pagy, @users = pagy(:offset, User.kept.all.order(last_name: :asc))
@@ -55,5 +56,9 @@ class UsersController < ApplicationController
 
   def user_params
     params.require(:user).permit(:first_name, :last_name, :dob, :email_address)
+  end
+
+  def current_ability
+    @current_ability ||= Ability.new(Current.user)
   end
 end

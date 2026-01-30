@@ -1,4 +1,5 @@
 class GenresController < ApplicationController
+  load_and_authorize_resource
   before_action :set_genre, only: %i[ show edit update destroy ]
 
   def index
@@ -55,5 +56,9 @@ class GenresController < ApplicationController
 
   def genre_params
     params.require(:genre).permit(:name)
+  end
+
+  def current_ability
+    @current_ability ||= Ability.new(Current.user)
   end
 end

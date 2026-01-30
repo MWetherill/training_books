@@ -1,5 +1,7 @@
 <h1 class="mb-4">Library (<%= @books_total %>)</h1>
-<%= link_to "Add a book", new_book_path, class: "btn btn-primary" %>
+<% if can? :create, Book %>
+  <%= link_to "Add a book", new_book_path, class: "btn btn-primary" %>
+<% end %>
 <hr>
 <% if @books.present? %>
   <table class="table table-striped text-start">
