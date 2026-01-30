@@ -16,7 +16,11 @@ class BooksController < ApplicationController
 
   def new
     @book = Book.new
-    @users = User.all.order(last_name: :asc)
+    if Current.user.admin?
+      @users = User.all.order(last_name: :asc)
+    else
+      @users = User.all.where(id: Current.user.id)
+    end
     @genres = Genre.all.order(name: :asc)
   end
 
