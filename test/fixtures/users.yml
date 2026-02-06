@@ -1,6 +1,6 @@
 <% password_digest = BCrypt::Password.create("password") %>
 
-admin_user:
+test_admin_user:
   first_name: MyString
   last_name: MyString
   email_address: admin@example.com
@@ -8,7 +8,7 @@ admin_user:
   dob: 1986-01-12
   role: admin
 
-user:
+test_user:
   first_name: MyString
   last_name: MyString
   email_address: user@example.com

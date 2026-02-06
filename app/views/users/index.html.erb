@@ -1,5 +1,7 @@
 <h1 class="mb-4">Users (<%= @users_total %>)</h1>
-<%= link_to "Add a user", new_user_path, class: "btn btn-primary" %>
+<% if can? :create, User %>
+  <%= link_to "Add a user", new_user_path, class: "btn btn-primary" %>
+<% end %>
 <hr>
 <% if @users.present? %>
   <table class="table table-striped text-start">
